@@ -30,6 +30,27 @@ class Money():
             return float(value_int/multiplier)
 
 
+    def applyRound(self, decimals, method='round'):
+        self.decimals = decimals
+        self.value = self.handle_value(self.value, decimals, method)
+
+
+    def __add__(self, new):
+        """
+        Money + Money operation
+        We always save all decimals because each money can have a different quantity of decimals and
+        differents round methods, so after using the plus operation with maths he can use the method:
+        applyRound(decimals, method)
+        """
+        if(self.decimals < new.decimals):
+            sum_decimals = new.decimals
+        else:
+            sum_decimals = self.decimals
+        
+        sum_value = self.value + new.value
+        return Money(sum_value, sum_decimals)
+
+
     def __str__(self):
         return self.coin_name + str(self.money)
 
