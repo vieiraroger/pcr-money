@@ -1,3 +1,4 @@
+import math
 
 class Money():
 
@@ -11,13 +12,21 @@ class Money():
     def handle_value(value, decimals, method='round'):
         """
         TODO think a better way to select and do this method
-        :method can be 'round' and 'truncation'
+        :method can be 'round', 'truncation', 'floor' and 'ceil
         """
         if(method == 'round'):
             return round(value, decimals)
-        elif(method == 'truncation'):
+        elif(method == 'truncation' or method == 'floor'):
             multiplier = pow(10, decimals)
             value_int = int(value * multiplier)
+            return float(value_int/multiplier)
+        elif(method == 'ceil'):
+            multiplier = pow(10, decimals)
+            value_int = int(value * (10 * multiplier))
+
+            if(value_int%10 != 0):
+                value_int+=10
+            value_int = int(value_int/10)
             return float(value_int/multiplier)
 
 
