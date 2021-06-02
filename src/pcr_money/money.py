@@ -1,24 +1,38 @@
-from decimal import *
+#from decimal import Decimal, ROUND_CEILING, ROUND_FLOOR
+from math import ceil, floor
 
 class Money():
 
     def __init__(self, value=0.0, decimals=2, coin_name='U$', method='round'):
         self.decimals = decimals
         self.coin_name = coin_name
-        self.value = self.handle_value(value, decimals=2, method='round')
+        self.value = self.handle_value(value, decimals, method)
 
 
     @staticmethod
     def handle_value(value, decimals, method):
         _round_methods = {
             'round' : lambda value, decimals: round(value, decimals),
-            'truncation': lambda value: int(value),
-            'ceil' : lambda value: ROUND_CEILING(value),
-            'floor' : lambda value: ROUND_FLOOR(value)
+            'truncation': lambda value, decimals: int(value),
+            'ceil' : lambda value, decimals: ceil(value),
+            'floor' : lambda value, decimals: floor(value)
         }
-        value = Decimal(str(value))
+        #value = Decimal(str(value))
         return float(_round_methods[method](value, decimals))
 
+    def __add__(self, other):
+        if other.decimals > self.decimals:
+            decimal = other.decimals
+        else:
+            decimal = self.decimals
+        return Money((self.value + other.value), decimals=decimal)
+
+    def __sub__(self, other):
+        if other.decimals > self.decimals:
+            decimal = other.decimals
+        else:
+            decimal = self.decimals
+        return Money((self.value - other.value), decimals=decimal)
 
     def applyRound(self, decimals, method='round'):
         self.decimals = decimals
