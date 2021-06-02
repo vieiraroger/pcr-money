@@ -1,4 +1,3 @@
-
 from math import ceil, floor
 
 class Money():
@@ -17,7 +16,6 @@ class Money():
             'ceil' : lambda value, decimals: ceil(value),
             'floor' : lambda value, decimals: floor(value)
         }
-        #value = Decimal(str(value))
         return float(_round_methods[method](value, decimals))
 
     def __add__(self, other):
