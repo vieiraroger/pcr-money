@@ -6,6 +6,9 @@ class TestMoney(unittest.TestCase):
 
     def test_apply_round(self):
         m1 = Money(10.789, 3)
+        m1.applyRound(3)
+        self.assertEqual(m1.value, 10.789)
+        self.assertEqual(m1.decimals, 3)
         m1.applyRound(2)
         self.assertEqual(m1.value, 10.79)
         self.assertEqual(m1.decimals, 2)
