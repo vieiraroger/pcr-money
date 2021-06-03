@@ -1,4 +1,4 @@
-import math
+from math import ceil, floor
 
 class Money():
 
@@ -9,46 +9,32 @@ class Money():
 
 
     @staticmethod
-    def handle_value(value, decimals, method='round'):
-        """
-        TODO think a better way to select and do this method
-        :method can be 'round', 'truncation', 'floor' and 'ceil
-        """
-        if(method == 'round'):
-            return round(value, decimals)
-        elif(method == 'truncation' or method == 'floor'):
-            multiplier = pow(10, decimals)
-            value_int = int(value * multiplier)
-            return float(value_int/multiplier)
-        elif(method == 'ceil'):
-            multiplier = pow(10, decimals)
-            value_int = int(value * (10 * multiplier))
+    def handle_value(value, decimals, method):
+        _round_methods = {
+            'round' : lambda value, decimals: round(value, decimals),
+            'truncation': lambda value, decimals: int(value),
+            'ceil' : lambda value, decimals: ceil(value),
+            'floor' : lambda value, decimals: floor(value)
+        }
+        return float(_round_methods[method](value, decimals))
 
-            if(value_int%10 != 0):
-                value_int+=10
-            value_int = int(value_int/10)
-            return float(value_int/multiplier)
+    def __add__(self, other):
+        if other.decimals > self.decimals:
+            decimal = other.decimals
+        else:
+            decimal = self.decimals
+        return Money((self.value + other.value), decimals=decimal)
 
+    def __sub__(self, other):
+        if other.decimals > self.decimals:
+            decimal = other.decimals
+        else:
+            decimal = self.decimals
+        return Money((self.value - other.value), decimals=decimal)
 
     def applyRound(self, decimals, method='round'):
         self.decimals = decimals
         self.value = self.handle_value(self.value, decimals, method)
-
-
-    def __add__(self, new):
-        """
-        Money + Money operation
-        We always save all decimals because each money can have a different quantity of decimals and
-        differents round methods, so after using the plus operation with maths he can use the method:
-        applyRound(decimals, method)
-        """
-        if(self.decimals < new.decimals):
-            sum_decimals = new.decimals
-        else:
-            sum_decimals = self.decimals
-        
-        sum_value = self.value + new.value
-        return Money(sum_value, sum_decimals)
 
 
     def __str__(self):
