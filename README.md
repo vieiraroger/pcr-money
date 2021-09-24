@@ -10,6 +10,8 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
+<details open><summary><strong>Documentation in English</strong></summary>
+
 <h1 align="center">PCR MONEY</h1>
 
 
@@ -104,3 +106,105 @@ Project Link: [https://github.com/vieiraroger/pcr-money](https://github.com/viei
 [issues-url]: https://github.com/vieiraroger/pcr-money/issues
 [license-shield]: https://img.shields.io/github/license/vieiraroger/pcr-money.svg?style=for-the-badge
 [license-url]: https://github.com/vieiraroger/pcr-money/blob/master/LICENSE.txt
+</details>
+
+
+<details><summary><strong>Documentação em português</strong></summary>
+
+
+
+<h1 align = "center"> PCR MONEY </h1>
+
+
+<p align = "center">
+Uma biblioteca python incrível para trabalhar com dinheiro.
+<br/>
+<a href="https://github.com/vieiraroger/pcr-money/issues"> Reportar bug </a>
+·
+<a href="https://github.com/vieiraroger/pcr-money/issues"> Solicitar recurso </a>
+</p>
+
+
+<!-- SOBRE O PROJETO -->
+## Sobre o projeto
+
+
+PCR Money é uma biblioteca python com o objetivo de ajudar os desenvolvedores que lidam com operações de dinheiro em seus sistemas
+
+
+<!-- COMEÇANDO -->
+## Começando
+
+Para obter uma cópia local instalada e funcionando, siga estas etapas simples.
+
+### Instalação
+
+1. Clone o pcr-money
+   ```sh
+   git clone https://github.com/vieiraroger/pcr-money.git
+   ```
+2. Instale os requisitos PIP
+   ```sh
+   pip install requirements.txt
+   ```
+
+
+
+<!-- EXEMPLOS DE USO -->
+## Uso
+
+Esta biblioteca está em desenvolvimento, quando publicarmos nossa solução nas bibliotecas pip teremos uma página com alguns usos.
+
+
+
+<!-- ROADMAP -->
+## Roteiro
+
+Consulte as [issues abertas](https://github.com/vieiraroger/pcr-money/issues) para obter uma lista de recursos propostos (e problemas conhecidos).
+
+
+
+
+<!-- CONTRIBUINDO -->
+## Contribuindo
+
+As contribuições são o que torna a comunidade de código aberto um lugar incrível para aprender, inspirar e criar. Quaisquer contribuições que você fizer são **muito apreciadas**.
+
+1. Faça um fork do projeto
+2. Crie seu Feature Branch (`git checkout -b feature / AmazingFeature`)
+3. Faça commit de suas alterações (`git commit -m 'Add some AmazingFeature'`)
+4. Envie para o Branch (`git push origin feature / AmazingFeature`)
+5. Abra uma solicitação pull
+
+Você também pode ajudar solicitando algum recurso ou relatando bugs em [issues](https://github.com/vieiraroger/pcr-money/issues).
+
+
+<!-- LICENÇA -->
+## Licença
+
+Distribuído sob a licença BSD 3. Veja `LICENÇA` para mais informações.
+
+
+
+<!-- CONTATO -->
+## Contato
+
+Discord - [programando-com-roger](https://discord.gg/Gexj5pSq58)
+
+Link do projeto: [https://github.com/vieiraroger/pcr-money](https://github.com/vieiraroger/pcr-money)
+
+
+
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/vieiraroger/pcr-money.svg?style=for-the-badge
+[contributors-url]: https://github.com/vieiraroger/pcr-money/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/vieiraroger/pcr-money.svg?style=for-the-badge
+[forks-url]: https://github.com/vieiraroger/pcr-money/network/members
+[stars-shield]: https://img.shields.io/github/stars/vieiraroger/pcr-money.svg?style=for-the-badge
+[stars-url]: https://github.com/vieiraroger/pcr-money/stargazers
+[Issues-shield]: https://img.shields.io/github/issues/vieiraroger/pcr-money.svg?style=for-the-badge
+[issue-url]: https://github.com/vieiraroger/pcr-money/issues
+[license-shield]: https://img.shields.io/github/license/vieiraroger/pcr-money.svg?style=for-the-badge
+[license-url]: https://github.com/vieiraroger/pcr-money/blob/master/LICENSE.txt
+</details>
