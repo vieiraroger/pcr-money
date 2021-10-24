@@ -1,4 +1,6 @@
+from requests import get
 import math
+
 
 class Money():
 
@@ -57,3 +59,20 @@ class Money():
 
     def __repr__(self):
         return f"<Money {self.value}>"
+
+
+class Currency(object):
+    def __init__(self, API_PATH='https://economia.awesomeapi.com.br/last/'):
+        self.API_PATH = API_PATH
+
+    def converter(self, FROM:str, TO:str, qnt=1):
+        self.FROM = FROM
+        self.TO = TO
+        self.qnt = qnt
+        
+        api = get(''.join([self.API_PATH, FROM, '-', TO]))
+        r = api.status_code
+
+        if r == 200:
+            return float(api.json()[FROM+TO]['ask']) * qnt
+        return str(api) + " This currency isn't registered in the API or doesn't exist."
