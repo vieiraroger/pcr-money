@@ -105,7 +105,7 @@ Project Link: [https://github.com/vieiraroger/pcr-money](https://github.com/viei
 [issues-shield]: https://img.shields.io/github/issues/vieiraroger/pcr-money.svg?style=for-the-badge
 [issues-url]: https://github.com/vieiraroger/pcr-money/issues
 [license-shield]: https://img.shields.io/github/license/vieiraroger/pcr-money.svg?style=for-the-badge
-[license-url]: https://github.com/vieiraroger/pcr-money/blob/master/LICENSE.txt
+[license-url]: https://github.com/vieiraroger/pcr-money/blob/master/LICENSE
 </details>
 
 
