@@ -44,7 +44,7 @@ To get a local copy up and running follow these simple steps.
    ```
 2. Install PIP requirements
    ```sh
-   pip install requirements.txt
+   pip install -r requirements.txt
    ```
 
 
