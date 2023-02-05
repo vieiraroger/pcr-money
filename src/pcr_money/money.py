@@ -7,38 +7,36 @@ truncation = MethodEnum.truncation.name
 floor = MethodEnum.floor.name
 ceil = MethodEnum.ceil.name
 
-class Money():
 
-    def __init__(self, value=0.0, decimals=2, coin_name='U$', method =roundv):
+class Money:
+
+    def __init__(self, value=0.0, decimals=2, coin_name='U$', method=roundv):
         self.decimals = decimals
         self.coin_name = coin_name
         self.value = self.handle_value(value, decimals, method)
 
-
     @staticmethod
-    def handle_value(value, decimals, method =roundv):
-        if(method == roundv):
+    def handle_value(value, decimals, method=roundv):
+        if method == roundv:
             return round(value, decimals)
-        elif(method == truncation or method == floor):
+        elif method == truncation or method == floor:
             multiplier = pow(10, decimals)
             value_int = int(value * multiplier)
             return float(value_int/multiplier)
-        elif(method == ceil):
+        elif method == ceil:
             multiplier = pow(10, decimals)
             value_int = int(value * (10 * multiplier))
 
-            if(value_int%10 != 0):
-                value_int+=10
+            if value_int % 10 != 0:
+                value_int += 10
             value_int = int(value_int/10)
             return float(value_int/multiplier)
         else:
             return None
 
-
     def applyRound(self, decimals, method=roundv):
         self.decimals = decimals
         self.value = self.handle_value(self.value, decimals, method)
-
 
     def __add__(self, new):
         """
@@ -47,7 +45,7 @@ class Money():
         differents round methods, so after using the plus operation with maths he can use the method:
         applyRound(decimals, method)
         """
-        if(self.decimals < new.decimals):
+        if self.decimals < new.decimals:
             sum_decimals = new.decimals
         else:
             sum_decimals = self.decimals
@@ -55,27 +53,28 @@ class Money():
         sum_value = self.value + new.value
         return Money(sum_value, sum_decimals)
 
-
     def __str__(self):
         return self.coin_name + str(self.money)
-
 
     def __repr__(self):
         return f"<Money {self.value}>"
 
 
 class Currency(object):
-    def __init__(self, API_PATH='https://economia.awesomeapi.com.br/last/'):
-        self.API_PATH = API_PATH
+    def __init__(self, api_path='https://economia.awesomeapi.com.br/last/'):
+        self.qnt = None
+        self.TO = None
+        self.FROM = None
+        self.API_PATH = api_path
 
-    def converter(self, FROM:str, TO:str, qnt=1):
-        self.FROM = FROM
-        self.TO = TO
+    def converter(self, of: str, to: str, qnt=1):
+        self.FROM = of
+        self.TO = to
         self.qnt = qnt
         
-        api = get(''.join([self.API_PATH, FROM, '-', TO]))
+        api = get(''.join([self.API_PATH, of, '-', to]))
         r = api.status_code
 
         if r == 200:
-            return float(api.json()[FROM+TO]['ask']) * qnt
+            return float(api.json()[of+to]['ask']) * qnt
         return str(api) + " This currency isn't registered in the API or doesn't exist."
