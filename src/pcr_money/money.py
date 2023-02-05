@@ -8,7 +8,7 @@ floor = MethodEnum.floor.name
 ceil = MethodEnum.ceil.name
 
 
-class Money():
+class Money:
 
     def __init__(self, value=0.0, decimals=2, coin_name='U$', method=roundv):
         self.decimals = decimals
@@ -17,17 +17,17 @@ class Money():
 
     @staticmethod
     def handle_value(value, decimals, method=roundv):
-        if(method == roundv):
+        if method == roundv:
             return round(value, decimals)
-        elif(method == truncation or method == floor):
+        elif method == truncation or method == floor:
             multiplier = pow(10, decimals)
             value_int = int(value * multiplier)
             return float(value_int/multiplier)
-        elif(method == ceil):
+        elif method == ceil:
             multiplier = pow(10, decimals)
             value_int = int(value * (10 * multiplier))
 
-            if(value_int % 10 != 0):
+            if value_int % 10 != 0:
                 value_int += 10
             value_int = int(value_int/10)
             return float(value_int/multiplier)
@@ -45,7 +45,7 @@ class Money():
         differents round methods, so after using the plus operation with maths he can use the method:
         applyRound(decimals, method)
         """
-        if(self.decimals < new.decimals):
+        if self.decimals < new.decimals:
             sum_decimals = new.decimals
         else:
             sum_decimals = self.decimals
