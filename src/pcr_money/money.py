@@ -61,17 +61,17 @@ class Money:
 
 
 class Currency(object):
-    def __init__(self, API_PATH='https://economia.awesomeapi.com.br/last/'):
-        self.API_PATH = API_PATH
+    def __init__(self, api_path='https://economia.awesomeapi.com.br/last/'):
+        self.API_PATH = api_path
 
-    def converter(self, FROM: str, TO: str, qnt=1):
-        self.FROM = FROM
-        self.TO = TO
+    def converter(self, of: str, to: str, qnt=1):
+        self.FROM = of
+        self.TO = to
         self.qnt = qnt
         
-        api = get(''.join([self.API_PATH, FROM, '-', TO]))
+        api = get(''.join([self.API_PATH, of, '-', to]))
         r = api.status_code
 
         if r == 200:
-            return float(api.json()[FROM+TO]['ask']) * qnt
+            return float(api.json()[of+to]['ask']) * qnt
         return str(api) + " This currency isn't registered in the API or doesn't exist."
