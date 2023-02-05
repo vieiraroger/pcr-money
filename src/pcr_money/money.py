@@ -62,6 +62,9 @@ class Money:
 
 class Currency(object):
     def __init__(self, api_path='https://economia.awesomeapi.com.br/last/'):
+        self.qnt = None
+        self.TO = None
+        self.FROM = None
         self.API_PATH = api_path
 
     def converter(self, of: str, to: str, qnt=1):
