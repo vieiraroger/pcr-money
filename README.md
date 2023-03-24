@@ -46,6 +46,14 @@ To get a local copy up and running follow these simple steps.
    ```sh
    pip install -r requirements.txt
    ```
+3. Build the package
+   ```bash
+   python -m build
+   ```
+4. Install the package
+   ```bash
+   pip install dist/pcr_money-0.1.0-py3-none-any.whl
+   ```
 
 
 
@@ -147,7 +155,14 @@ Para obter uma cópia local instalada e funcionando, siga estas etapas simples.
    ```sh
    pip install requirements.txt
    ```
-
+3. Construção do pacote
+   ```bash
+   python -m build
+   ```
+4. Instalação do pacote
+   ```bash
+   pip install dist/pcr_money-0.1.0-py3-none-any.whl
+   ```
 
 
 <!-- EXEMPLOS DE USO -->

@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools",
+            "build",
+            "requests"
+           ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pcr_money"
+version = "0.1.0"
+description = "An awesome python library to work with money"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: The 3-Clause BSD License (BSD-3-Clause)",
+    "Operating System :: OS Independent",
+]
